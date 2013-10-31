@@ -1,3 +1,7 @@
+require 'ka_ext_users/constraints/ip_whitelist_constraint'
+
 KaExtUsers::Engine.routes.draw do
-  resources :users, :constraints => KaExtUsers::IpWhitelistConstraint.new
+  constraint KaExtUsers::IpWhitelistConstraint.new do
+    resources :users
+  end
 end
