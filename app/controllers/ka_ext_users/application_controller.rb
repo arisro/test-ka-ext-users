@@ -1,4 +1,4 @@
 module KaExtUsers
-  class ApplicationController < Rails::ApplicationController
+  class ApplicationController < ActionController::Base
   end
 end
