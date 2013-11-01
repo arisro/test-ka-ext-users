@@ -1,3 +1,3 @@
 KaExtUsers::Engine.routes.draw do
-  resources :users
+ 	mount KaExtUsers::API => "/"
 end
