@@ -1,6 +1,6 @@
 module KaExtUsers
   class UsersController < ApplicationController
-    represents :json, :entity => KaExtUsers::UserRepresenter
+    represents :json, :entity => UserRepresenter
 
     def index
       users = User.all
