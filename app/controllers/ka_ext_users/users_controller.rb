@@ -2,8 +2,8 @@ module KaExtUsers
   class UsersController < KaExtUsers::ApplicationController
     def index
       users = User.all
-      render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
-      respond_with users
+      #render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
+      respond_with(users, represent_with: KaExtUsers::UserRepresenter)
     end
 
     def show    	
