@@ -24,6 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '~> 4.0.0'
   spec.add_dependency 'activerecord', '~> 4.0.0'
   spec.add_dependency 'pg'
-  spec.add_dependency 'grape'
   spec.add_dependency 'roar-rails'
 end

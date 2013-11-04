@@ -3,7 +3,7 @@ module KaExtUsers
     def index
       users = User.all
       render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
-      #respond_with users
+      respond_with users
     end
 
     def show    	
