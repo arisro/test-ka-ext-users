@@ -1,5 +1,6 @@
 require "roar"
 require "roar-rails"
+require "responder"
 require "active_record"
 require "action_controller"
 require "ka_ext_users/version"
