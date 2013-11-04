@@ -1,10 +1,8 @@
-module KaExtUsers
-	module UserRepresenter
-		include Roar::Representer::JSON
+module UserRepresenter
+	include Roar::Representer::JSON
 
-		property :id
-		property :email
-		property :fname
-		property :lname	
-	end
+	property :id
+	property :email
+	property :fname
+	property :lname	
 end

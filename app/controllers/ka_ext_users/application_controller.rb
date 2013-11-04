@@ -2,7 +2,7 @@ require 'roar/rails/controller_additions'
 
 module KaExtUsers
   class ApplicationController < ActionController::Base
-	include Roar::Rails::ControllerAdditions
+	#include Roar::Rails::ControllerAdditions
 
 	# def self.responder
 	# 	KaExtUsers::Responders::ApiResponder
