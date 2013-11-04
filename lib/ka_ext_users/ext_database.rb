@@ -1,6 +1,6 @@
 module KaExtUsers
 	class ExtDatabase < ActiveRecord::Base		
-		establish_connection YAML::load_file("#{KaExtUsers::Engine.root}/config/database.yml")
+		establish_connection KaExtUsers::Engine.database_config
 
 		@@table_name = nil
 

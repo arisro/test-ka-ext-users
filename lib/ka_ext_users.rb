@@ -6,7 +6,7 @@ require "action_controller"
 require "ka_ext_users/version"
 require "ka_ext_users/engine"
 require "ka_ext_users/ext_database"
+require "ka_ext_users/migration"
 
-module KaExtUsers
-  # Your code goes here...
+module KaExtUsers	
 end

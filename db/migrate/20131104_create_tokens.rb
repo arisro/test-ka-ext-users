@@ -1,9 +1,9 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateTokens < KaExtUsers::ExtMigration
 	def up
 		create_table :tokens do |t|
-			t.user_id :integer
-			t.website_id :integer
-			t.token :string
+			t.integer :user_id
+			t.integer :website_id
+			t.string :token
 
 			t.timestamps
 		end
