@@ -1,13 +1,17 @@
 module KaExtUsers
   class UsersController < KaExtUsers::ApplicationController
+    represents :json, User
+
     def index
       users = User.all
-      #render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
-      respond_with(users, represent_with: KaExtUsers::UserRepresenter)
+      render json: users
+      #respond_with(users, represent_with: KaExtUsers::UserRepresenter)
     end
 
-    def show    	
-    	render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
+    def show  
+        user = User.find(params[:id])  	
+        respond_with(user, represent_with: KaExtUsers::UserRepresenter)
+        #render json: user
     end
 
     def update
@@ -24,7 +28,6 @@ module KaExtUsers
     		render text: @user.to_json
     	else
     		head :bad_request
-    		render json: { :status => 'error' }
     	end
     end
 
