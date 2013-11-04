@@ -9,8 +9,8 @@ module KaExtUsers
     end
 
     def show  
-        user = User.find(params[:id])  	
-        respond_with(user)
+        @user = User.find(params[:id])  	
+        respond_with @user
         #render json: user
     end
 
