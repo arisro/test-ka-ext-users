@@ -1,5 +1,5 @@
 require "grape"
-require "grape_entity"
+require "roar"
 require "active_record"
 require "action_controller"
 require "ka_ext_users/version"

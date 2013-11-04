@@ -1,13 +1,9 @@
 module KaExtUsers
-	class API < Grape::API
-		format :json
-
-		version 'v1', :using => :header, :vendor => "App"
-
+	class API::Users < Api::Base
 		resource :users do
 			get '/' do
 				users = User.all
-				present users
+				represent users
 			end
 			get '/:id' do
 				user = User.where(:id => params[:id])
