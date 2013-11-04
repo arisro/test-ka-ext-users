@@ -1,6 +1,6 @@
 module KaExtUsers
   class UsersController < ApplicationController
-    respond_to :json
+    represents :json, :entity => KaExtUsers::UserRepresenter
 
     def index
       users = User.all
