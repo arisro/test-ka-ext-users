@@ -1,3 +1,3 @@
 KaExtUsers::Engine.routes.draw do
- 	resources :users
+ 	resources :users, :defaults => { :format => 'json' }
 end

@@ -3,11 +3,10 @@ require 'roar/rails/controller_additions'
 module KaExtUsers
   class ApplicationController < ActionController::Base
 	include Roar::Rails::ControllerAdditions
-	respond_to :json
 
-	def self.responder
-		KaExtUsers::Responders::ApiResponder
-	end
+	# def self.responder
+	# 	KaExtUsers::Responders::ApiResponder
+	# end
 
 	rescue_from(ActiveRecord::RecordNotFound) do |exception|
 		render nothing: true, status: 404

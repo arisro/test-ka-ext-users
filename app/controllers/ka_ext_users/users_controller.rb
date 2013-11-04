@@ -10,7 +10,11 @@ module KaExtUsers
 
     def show  
         @user = User.find(params[:id])  	
-        respond_with @user
+        respond_with @user, representer: KaExtUsers::UserRepresenter
+
+        # respond_with(@user) do |format|
+        #     format.json { render }
+        # end
         #render json: user
     end
 
