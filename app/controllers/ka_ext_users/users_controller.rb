@@ -13,10 +13,12 @@ module KaExtUsers
     end
 
     def update
-    	#@user = User.find(params[:id])
-    	#if @user.update_attributes(params[:user])
-
-    	render json: {:id => 2, :fname => "Fname2", :lname => "Lname2"}
+    	@user = User.find(params[:id])
+    	if @user.update_attributes(users_params)
+            head :no_content
+        else
+            head :bad_request
+        end
     end
 
     def create
@@ -25,7 +27,7 @@ module KaExtUsers
     	if @user.save
             respond_with @user
     	else
-    		head :bad_request
+    		head :unprocessable_entity
     	end
     end
 
