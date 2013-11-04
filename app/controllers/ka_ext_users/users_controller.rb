@@ -1,21 +1,15 @@
 module KaExtUsers
   class UsersController < ApplicationController
-    #represents :json, :entity => UserRepresenter
+    represents :json, :entity => ::UserRepresenter, :collection => ::UsersRepresenter
 
     def index
       users = User.all
-      render json: users
-      #respond_with(users, represent_with: KaExtUsers::UserRepresenter)
+      respond_with users
     end
 
     def show  
         @user = User.find(params[:id])  	
         respond_with @user
-
-        # respond_with(@user) do |format|
-        #     format.json { render }
-        # end
-        #render json: user
     end
 
     def update
@@ -29,14 +23,15 @@ module KaExtUsers
     	@user = User.new(users_params)
 
     	if @user.save
-    		render text: @user.to_json
+            respond_with @user
     	else
     		head :bad_request
     	end
     end
 
-    def delete
-
+    def destroy
+        @user = User.find(params[:id]).destroy
+        head :ok
     end
 
     private
