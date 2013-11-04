@@ -1,5 +1,8 @@
 module KaExtUsers
-	class API::Users < Api::Base
+	class API::Users < Grape::API
+		version 'v1', :using => :path
+		format :json
+
 		resource :users do
 			get '/' do
 				users = User.all
@@ -7,10 +10,10 @@ module KaExtUsers
 			end
 			get '/:id' do
 				user = User.where(:id => params[:id])
-        		present user
+        		represent user
 			end
 			post '/' do
-				@user = User.new(KaExtUsers::API.users_params(params))
+				@user = User.new(KaExtUsers::API::Users.users_params(params))
 		    	if @user.save
 		    		present @user
 		    	else
