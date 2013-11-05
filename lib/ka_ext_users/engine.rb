@@ -2,7 +2,6 @@ module KaExtUsers
   class Engine < Rails::Engine
     isolate_namespace KaExtUsers
 
-    config.middleware.use Rack::MethodOverride
     @@database_config = YAML::load_file("#{self.root}/config/database.yml")
     
     initializer :append_migrations do |app|

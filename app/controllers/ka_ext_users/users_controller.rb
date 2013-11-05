@@ -1,13 +1,19 @@
 module KaExtUsers
-  class UsersController < ApplicationController
+  class UsersController < KaExtUsers::ApplicationController
     represents :json, :entity => ::UserRepresenter, :collection => ::UsersRepresenter
 
     def index
-      users = User.all
-      respond_with users
+        # filtering!
+        conditions = {}
+        if !params[:filter].nil?
+            conditions[:email] = params[:filter][:email] unless params[:filter][:email].nil?
+        end
+        users = User.where(conditions)
+
+        respond_with users
     end
 
-    def show  
+    def show
         @user = User.find(params[:id])  	
         respond_with @user
     end
@@ -32,7 +38,7 @@ module KaExtUsers
     end
 
     def destroy
-        @user = User.find(params[:id]).destroy
+        User.find(params[:id]).destroy
         head :ok
     end
 

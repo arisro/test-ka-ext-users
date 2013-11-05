@@ -1,3 +1,7 @@
 KaExtUsers::Engine.routes.draw do
- 	resources :users
+	resources :tokens
+	
+ 	resources :users do
+ 		resources :tokens
+ 	end
 end

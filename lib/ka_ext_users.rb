@@ -1,3 +1,4 @@
+require 'rails'
 require "roar"
 require "roar-rails"
 require "ka_ext_users/responder"
@@ -8,5 +9,5 @@ require "ka_ext_users/engine"
 require "ka_ext_users/ext_database"
 require "ka_ext_users/migration"
 
-module KaExtUsers	
+module KaExtUsers
 end
