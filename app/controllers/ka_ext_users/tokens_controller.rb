@@ -1,13 +1,13 @@
 module KaExtUsers
-  class TokensController < ApplicationController
-    represents :json, :entity => ::TokenRepresenter
+  class TokensController < KaExtUsers::ApplicationController
+    represents :json, :entity => ::TokenRepresenter, :collection => ::TokensRepresenter
 
     before_filter :add_user_id
 
     def index
         @tokens = nil
-        if !params[:user_id].blank? 
-            @tokens = Token.where(:user_id => params[:user_id]).first
+        if !params[:user_id].blank?
+            @tokens = Token.find_by(:user_id => params[:user_id]).first
         else
             @tokens = Token.all
         end
@@ -15,8 +15,8 @@ module KaExtUsers
     end
 
     def show
-        if params[:id].to_s.length == 16
-            @token = Token.where(:token => params[:id])
+        if params[:id].to_s.length == 32
+            @token = Token.find_by(:token => params[:id])
         else
             @token = Token.find(params[:id])
         end
@@ -33,7 +33,7 @@ module KaExtUsers
     end
 
     def create
-        @token = Token.find_or_create_by_user_id_and_website_id(params[:token][:user_id],params[:token][:website_id])
+        @token = Token.find_or_create_by(:user_id => params[:token][:user_id],:website_id => params[:token][:website_id])
         @token.update_attributes(token_params)
 
         if @token.save
@@ -44,7 +44,11 @@ module KaExtUsers
     end
 
     def destroy
-        Token.find(params[:id]).destroy
+        if params[:id].to_s.length == 32
+            Token.find_by(:token => params[:id]).destroy
+        else
+            Token.find(params[:id]).destroy
+        end
         head :ok
     end
 

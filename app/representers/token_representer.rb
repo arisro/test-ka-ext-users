@@ -6,4 +6,6 @@ module TokenRepresenter
 	property :website_id
 	property :token
 	property :external_token_expiration
+
+	property :user, extend: UserRepresenter
 end

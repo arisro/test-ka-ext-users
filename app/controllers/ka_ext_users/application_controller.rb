@@ -5,6 +5,7 @@ module KaExtUsers
 	include Roar::Rails::ControllerAdditions
 	respond_to :json
 
+	before_filter :protect
 	before_filter :default_format_json
 
 	def self.responder
@@ -26,6 +27,15 @@ module KaExtUsers
 
 	def default_format_json
 		request.format = "json" unless params[:format]
+	end
+
+	# this is how we can allow only internal calls
+	def protect
+		# @ips = ['127.0.0.1']
+		# if not @ips.include? request.remote_ip
+		# 	head :forbidden
+		# 	return
+		# end
 	end
   end
 end

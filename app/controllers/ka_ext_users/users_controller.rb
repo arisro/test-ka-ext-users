@@ -8,13 +8,13 @@ module KaExtUsers
         if !params[:filter].nil?
             conditions[:email] = params[:filter][:email] unless params[:filter][:email].nil?
         end
-        users = User.where(conditions)
+        users = User.find_by(conditions)
 
         respond_with users
     end
 
     def show
-        @user = User.find(params[:id])  	
+        @user = User.find(params[:id])
         respond_with @user
     end
 
