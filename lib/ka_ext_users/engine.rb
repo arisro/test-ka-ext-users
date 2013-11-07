@@ -34,8 +34,11 @@ module KaExtUsers
 
     def self.database_config
         self.load_config if @@config.nil?
-        @@config['database'] if !@@config.nil?
-        nil if @@config.nil?
+        if !@@config.nil?
+          return @@config['database'] 
+        else
+          return nil
+        end
     end
   end
 end
