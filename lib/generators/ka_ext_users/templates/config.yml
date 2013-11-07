@@ -1,0 +1,6 @@
+database:
+	adapter: 'postgresql'
+	host: 'localhost'
+	database: 'ext_users'
+	username: 'username'
+	password: 'password'
