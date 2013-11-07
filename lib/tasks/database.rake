@@ -8,16 +8,6 @@ namespace :ka do
 				Rake::Task["ka:extusers:db:schema:dump"].invoke
 			end
 
-			desc 'Create extension tables'
-			task :create => :environment do
-				ActiveRecord::Base.establish_connection KaExtUsers::Engine.database_config
-				if ActiveRecord::Base.connection.tables.empty?
-					Rake::Task["ka:extusers:db:schema:load"].invoke
-				else
-					puts "\tDatabase is not empty! Use ka:extusers:db:recreate if you want to rebuild it."
-				end
-			end
-
 			desc 'Rereates extension tables'
 			task :recreate => :environment do
 				ActiveRecord::Base.establish_connection KaExtUsers::Engine.database_config
