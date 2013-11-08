@@ -29,7 +29,6 @@ module KaExtUsers
 
     def create
     	@user = User.new(users_params)
-        logger.debug(@user.inspect)
     	if @user.save
             respond_with @user
     	else
