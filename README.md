@@ -1,9 +1,22 @@
 # ka_ext_users
 
 This is the users extension. It acts like a data source for the modules, and provides basic CRUD operations for the following resources: users, tokens.
-It exposes the following calls:
 
-It brings to the main application the following routes:
+#### Config file
+```yml
+database:
+  adapter: 'postgresql'
+  encoding: 'utf8'
+  host: 'localhost'
+  database: 'ext_users'
+  username: 'username'
+  password: 'password'
+  port: '5432'
+```
+- *database:* - the database used for storage
+
+
+#### Routes
 
 **Users**
 
