@@ -5,26 +5,35 @@ It exposes the following calls:
 
 It brings to the main application the following routes:
 
-Users
-- GET /mount-base/users
-- GET /mount-base/users/:id
-- POST /mount-base/users
-- PATCH /mount-base/users/:id
-- PUT /mount-base/users/:id
-- DELETE /mount-base/users/:id
+**Users**
 
-Tokens
-- GET /mount-base/tokens
-- GET /mount-base/tokens/:id
-- POST /mount-base/tokens
-- PATCH /mount-base/tokens/:id
-- PUT /mount-base/tokens/:id
-- DELETE /mount-base/tokens/:id
+| Method        | Path                  |
+|:--------------|:----------------------|
+| GET | /mount-base/users
+| GET | /mount-base/users/:id
+| POST | /mount-base/users
+| PATCH | /mount-base/users/:id
+| PUT | /mount-base/users/:id
+| DELETE | /mount-base/users/:id
 
-User has_many Tokens
-- GET /mount-base/users/:user_id/tokens
-- GET /mount-base/users/:user_id/tokens/:id
-- POST /mount-base/users/:user_id/tokens
-- PATCH /mount-base/users/:id/tokens/:id
-- PUT /mount-base/users/:user_id/tokens/:id
-- DELETE /mount-base/users/:user_id/tokens/:id
+**Tokens**
+
+| Method        | Path                  |
+|:--------------|:----------------------|
+| GET | /mount-base/tokens
+| GET | /mount-base/tokens/:id
+| POST | /mount-base/tokens
+| PATCH | /mount-base/tokens/:id
+| PUT | /mount-base/tokens/:id
+| DELETE | /mount-base/tokens/:id
+
+**User has_many Tokens**
+
+| Method        | Path                  |
+|:--------------|:----------------------|
+| GET | /mount-base/users/:user_id/tokens
+| GET | /mount-base/users/:user_id/tokens/:id
+| POST | /mount-base/users/:user_id/tokens
+| PATCH | /mount-base/users/:id/tokens/:id
+| PUT | /mount-base/users/:user_id/tokens/:id
+| DELETE | /mount-base/users/:user_id/tokens/:id
